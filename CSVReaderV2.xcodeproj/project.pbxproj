@@ -1,0 +1,296 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EC0345FA1FBD27D7000C371F /* ReadTxtFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC0345F81FBD27D7000C371F /* ReadTxtFile.cpp */; };
+		EC7C52D41FBAA2FB0098CF87 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC7C52D31FBAA2FB0098CF87 /* main.cpp */; };
+		EC7C52DE1FBAB40C0098CF87 /* ReadCSVFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC7C52DC1FBAB40C0098CF87 /* ReadCSVFile.cpp */; };
+		EC7C52E11FBAC4B60098CF87 /* ByteBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC7C52DF1FBAC4B60098CF87 /* ByteBuffer.cpp */; };
+		EC7C52E41FBBB2400098CF87 /* ObjectiveFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC7C52E21FBBB2400098CF87 /* ObjectiveFile.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EC7C52CE1FBAA2FB0098CF87 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		EC0345F81FBD27D7000C371F /* ReadTxtFile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ReadTxtFile.cpp; sourceTree = "<group>"; };
+		EC0345F91FBD27D7000C371F /* ReadTxtFile.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ReadTxtFile.hpp; sourceTree = "<group>"; };
+		EC7C52D01FBAA2FB0098CF87 /* CSVReaderV2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CSVReaderV2; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC7C52D31FBAA2FB0098CF87 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		EC7C52DC1FBAB40C0098CF87 /* ReadCSVFile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ReadCSVFile.cpp; sourceTree = "<group>"; };
+		EC7C52DD1FBAB40C0098CF87 /* ReadCSVFile.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ReadCSVFile.hpp; sourceTree = "<group>"; };
+		EC7C52DF1FBAC4B60098CF87 /* ByteBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ByteBuffer.cpp; sourceTree = "<group>"; };
+		EC7C52E01FBAC4B60098CF87 /* ByteBuffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ByteBuffer.hpp; sourceTree = "<group>"; };
+		EC7C52E21FBBB2400098CF87 /* ObjectiveFile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectiveFile.cpp; sourceTree = "<group>"; };
+		EC7C52E31FBBB2400098CF87 /* ObjectiveFile.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ObjectiveFile.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EC7C52CD1FBAA2FB0098CF87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EC7C52C71FBAA2FB0098CF87 = {
+			isa = PBXGroup;
+			children = (
+				EC7C52D21FBAA2FB0098CF87 /* CSVReaderV2 */,
+				EC7C52D11FBAA2FB0098CF87 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EC7C52D11FBAA2FB0098CF87 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC7C52D01FBAA2FB0098CF87 /* CSVReaderV2 */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC7C52D21FBAA2FB0098CF87 /* CSVReaderV2 */ = {
+			isa = PBXGroup;
+			children = (
+				EC7C52DF1FBAC4B60098CF87 /* ByteBuffer.cpp */,
+				EC7C52E01FBAC4B60098CF87 /* ByteBuffer.hpp */,
+				EC7C52D31FBAA2FB0098CF87 /* main.cpp */,
+				EC7C52E31FBBB2400098CF87 /* ObjectiveFile.hpp */,
+				EC7C52E21FBBB2400098CF87 /* ObjectiveFile.cpp */,
+				EC7C52DD1FBAB40C0098CF87 /* ReadCSVFile.hpp */,
+				EC7C52DC1FBAB40C0098CF87 /* ReadCSVFile.cpp */,
+				EC0345F91FBD27D7000C371F /* ReadTxtFile.hpp */,
+				EC0345F81FBD27D7000C371F /* ReadTxtFile.cpp */,
+			);
+			path = CSVReaderV2;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EC7C52CF1FBAA2FB0098CF87 /* CSVReaderV2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC7C52D71FBAA2FB0098CF87 /* Build configuration list for PBXNativeTarget "CSVReaderV2" */;
+			buildPhases = (
+				EC7C52CC1FBAA2FB0098CF87 /* Sources */,
+				EC7C52CD1FBAA2FB0098CF87 /* Frameworks */,
+				EC7C52CE1FBAA2FB0098CF87 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CSVReaderV2;
+			productName = CSVReaderV2;
+			productReference = EC7C52D01FBAA2FB0098CF87 /* CSVReaderV2 */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EC7C52C81FBAA2FB0098CF87 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "Yujie Liu";
+				TargetAttributes = {
+					EC7C52CF1FBAA2FB0098CF87 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = EC7C52CB1FBAA2FB0098CF87 /* Build configuration list for PBXProject "CSVReaderV2" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EC7C52C71FBAA2FB0098CF87;
+			productRefGroup = EC7C52D11FBAA2FB0098CF87 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EC7C52CF1FBAA2FB0098CF87 /* CSVReaderV2 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EC7C52CC1FBAA2FB0098CF87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC7C52DE1FBAB40C0098CF87 /* ReadCSVFile.cpp in Sources */,
+				EC0345FA1FBD27D7000C371F /* ReadTxtFile.cpp in Sources */,
+				EC7C52E41FBBB2400098CF87 /* ObjectiveFile.cpp in Sources */,
+				EC7C52D41FBAA2FB0098CF87 /* main.cpp in Sources */,
+				EC7C52E11FBAC4B60098CF87 /* ByteBuffer.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		EC7C52D51FBAA2FB0098CF87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		EC7C52D61FBAA2FB0098CF87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		EC7C52D81FBAA2FB0098CF87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EC7C52D91FBAA2FB0098CF87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EC7C52CB1FBAA2FB0098CF87 /* Build configuration list for PBXProject "CSVReaderV2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC7C52D51FBAA2FB0098CF87 /* Debug */,
+				EC7C52D61FBAA2FB0098CF87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC7C52D71FBAA2FB0098CF87 /* Build configuration list for PBXNativeTarget "CSVReaderV2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC7C52D81FBAA2FB0098CF87 /* Debug */,
+				EC7C52D91FBAA2FB0098CF87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EC7C52C81FBAA2FB0098CF87 /* Project object */;
+}

@@ -1,0 +1,10 @@
+_Store
+*/**/.DS_Store
+*/**/\~\$*.*
+build/
+Build/
+Logs/
+*/**/UserInterfaceState.xcuserstate
+*/**/*.xcuserdatad/
+*.xcbkptlist
+DerivedData/

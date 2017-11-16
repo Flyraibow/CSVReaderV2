@@ -4,6 +4,7 @@ _Store
 build/
 Build/
 Logs/
+.DS_Store
 */**/UserInterfaceState.xcuserstate
 */**/*.xcuserdatad/
 *.xcbkptlist

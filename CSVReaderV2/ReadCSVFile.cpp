@@ -241,7 +241,10 @@ ObjectiveFile* convertCSVToObjectiveClass(const string &basePath,
           string propertyType = propertyTypeList[colNum];
           if (propertyType == "name") {
             assert(id_string.size() > 0);
-            string propertyName = propertyList[colNum] + "_" + id_string;
+            string propertyName = id_string;
+            if (propertyList[colNum] != ";") {
+              propertyName = propertyList[colNum] + "_" + id_string;
+            }
             localizedMap[propertyName] = token;
           }
         }

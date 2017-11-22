@@ -212,6 +212,8 @@ ObjectiveFile* convertCSVToObjectiveClass(const string &basePath,
   uint32_t pos = buffer->size();
   buffer->putInt(0);
   bool isGroup = false;
+  const static string namePrefix = "name";
+  string idIvar;
   while (getline(indata , cell, '\r')) {
     cell.erase(std::remove(cell.begin(), cell.end(), '\n'), cell.end());
     istringstream ss(cell);
@@ -230,6 +232,18 @@ ObjectiveFile* convertCSVToObjectiveClass(const string &basePath,
       } else if (lineNumber == -1) {
         token = _stripToken(token);
         propertyTypeList.push_back(token);
+        if (!token.compare(0, namePrefix.size(), namePrefix) && token.size() > namePrefix.size() + 1) {
+          string getStringFuncName = token.substr(namePrefix.size() + 1);
+          string prefixString = propertyList[propertyTypeList.size() - 1];
+          assert(idIvar.size() > 0);
+          ObjectiveFunction *getStringFunction = new ObjectiveFunction("-(NSString *)" + getStringFuncName);
+          getStringFunction->addLines("NSString *string = [NSString stringWithFormat:@\"" + prefixString + "_%@\",_" + idIvar + "];");
+          getStringFunction->addLines("return NSLocalizedString(string, nil);");
+          objectiveData->addFunction(getStringFunction);
+        } else if (token == "id" || token == "stringId") {
+          idIndex = (int)propertyTypeList.size() - 1;
+          idIvar = propertyList[idIndex];
+        }
       } else {
         if (colNum == idIndex) {
           id_string = token;
@@ -239,7 +253,7 @@ ObjectiveFile* convertCSVToObjectiveClass(const string &basePath,
           }
         } else {
           string propertyType = propertyTypeList[colNum];
-          if (propertyType == "name") {
+          if (!propertyType.compare(0, namePrefix.size(), namePrefix)) {
             assert(id_string.size() > 0);
             string propertyName = id_string;
             if (propertyList[colNum] != ";") {

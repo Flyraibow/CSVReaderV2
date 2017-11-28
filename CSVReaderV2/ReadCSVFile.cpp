@@ -22,6 +22,19 @@ using namespace std;
 
 typedef const unordered_map<string, string> static_map;
 
+vector<string> splitStr(const string &str, const string &token) {
+  regex e(token);
+  sregex_token_iterator iter(str.begin(),
+                             str.end(),
+                             e,
+                             -1);
+  vector<string> res;
+  for ( ; iter != sregex_token_iterator(); ++iter) {
+    res.push_back(*iter);
+  }
+  return res;
+}
+
 string nameChange(string originName,NameType type)
 {
   string bigname = originName;
@@ -55,8 +68,8 @@ string _stripTokenToNum(const string &token)
 ObjectiveType *_getPropertyType(const string &propertyType)
 {
   static const unordered_set<string> definedType({"int", "long", "double","BOOL", "NSInteger"});
-  static const unordered_set<string> definedPointerType({"NSString"});
-  static static_map definedMapType({{"string","NSString"}, {"id", "NSString"},{"groupId", "NSString"}, {"bool" , "BOOL"}, {"stringId", "NSString"}});
+  static const unordered_set<string> definedPointerType({"NSString", "NSSet"});
+  static static_map definedMapType({{"string","NSString"}, {"id", "NSString"},{"groupId", "NSString"}, {"bool" , "BOOL"}, {"stringId", "NSString"}, {"set", "NSSet"}});
   if (definedMapType.count(propertyType)) {
     return _getPropertyType(definedMapType.at(propertyType));
   } else if (definedType.count(propertyType)) {
@@ -73,7 +86,9 @@ string _getReadBufferByType(ObjectiveProperty *property)
     {"NSInteger", "readLong"},
     {"double", "readDouble"},
     {"long", "readLong"},
-    {"NSString", "readString"}});
+    {"NSString", "readString"},
+    {"NSSet", "readSet"},
+  });
   assert(definedMapType.count(property->type()));
   string result = "\t";
   result += "_" + property->name() + " = [buffer " + definedMapType.at(property->type()) + "];";
@@ -118,6 +133,12 @@ void _saveBuffer(unique_ptr<bb::ByteBuffer> &buffer, ObjectiveType *type, string
     buffer->putInt(stoi(token));
   } else if (type->type() == "NSString") {
     buffer->putString(token);
+  } else if (type->type() == "NSSet" || type->type() == "set") {
+    vector<string> sets = splitStr(token, ";");
+    buffer->putLong(sets.size());
+    for (int i = 0; i < sets.size(); ++i) {
+      buffer->putString(sets[i]);
+    }
   } else {
     throw new exception;
   }

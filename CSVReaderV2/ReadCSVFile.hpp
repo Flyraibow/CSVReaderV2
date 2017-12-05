@@ -20,7 +20,7 @@ using namespace std;
 
 const static string CSV_EXTENSION = ".csv";
 
-enum NameType { Origin, Uppercase, DataDeclare, DataDicDeclare, DataDicImp, DataImp};
+enum NameType { Origin, Uppercase, DataDeclare, DataDicDeclare, DataDicImp, DataImp, GetOriginFunc};
 
 string nameChange(string originName,NameType type);
 

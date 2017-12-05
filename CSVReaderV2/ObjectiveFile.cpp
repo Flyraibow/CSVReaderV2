@@ -78,12 +78,12 @@ string ObjectiveProperty::type() const {
 }
 
 
-ObjectiveFunction::ObjectiveFunction(string funcName) {
+ObjectiveFunction::ObjectiveFunction(const string &funcName) {
   _funcName = funcName;
   _simpleWay = true;
 }
 
-ObjectiveFunction::ObjectiveFunction(string funcName,
+ObjectiveFunction::ObjectiveFunction(const string &funcName,
                                      const ObjectiveType returnType,
                                      const vector<string> &paramterTags,
                                      const vector<string> &paramterNames,
@@ -139,6 +139,23 @@ string ObjectiveFunction::mainContent() const {
   return content;
 }
 
+StaticCPPFunction::StaticCPPFunction(const string &funcName) {
+  _funcName = funcName;
+}
+
+void StaticCPPFunction::addLines(const string &line) {
+  _lines.push_back(line);
+}
+
+string StaticCPPFunction::mainContent() const {
+  string content = _funcName;
+  content += "\n{\n";
+  for (int i = 0; i < _lines.size(); ++i) {
+    content += "\t" + _lines[i] + "\n";
+  }
+  content += "}";
+  return content;
+}
 
 ObjectiveClass::ObjectiveClass(const string &className) {
   _className = className;
@@ -199,6 +216,10 @@ string ObjectiveFile::_generateHFile() const {
     file += "#import " + header + "\n";
   }
   file += "\n";
+  for (StaticCPPFunction *sf : _staticCPPList) {
+    file += sf->mainContent() + "\n";
+  }
+  file += "\n";
   for (ObjectiveClass *oc : _classList) {
     file += oc->headerContent() + "\n";
   }
@@ -247,6 +268,10 @@ void ObjectiveFile::addStaticProperty(ObjectiveProperty *property) {
 
 void ObjectiveFile::addClass(ObjectiveClass *objectiveClass) {
   _classList.push_back(objectiveClass);
+}
+
+void ObjectiveFile::addStaticCPPFunction(StaticCPPFunction *staticCppFunction) {
+  _staticCPPList.push_back(staticCppFunction);
 }
 
 void ObjectiveFile::writeToFile(string basePath) {

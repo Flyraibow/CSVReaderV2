@@ -55,10 +55,19 @@ void readFile(string basePath, string fileName, map<string, string> &localizedMa
   smatch match;
   regex e("\"([^\"]+)\"[ ]*=[ ]*\"([^\"]+)\";");
   bool typeSame = false;
-  while (getline(indata , cell, '\n')) {
+  string textString;
+  while (getline(indata , cell, '\r')) {
+    textString += cell + '\r';
+  }
+  regex e1("[\n\r]");
+  sregex_token_iterator iter(textString.begin(),
+                             textString.end(),
+                             e1,
+                             -1);
+  for ( ; iter != sregex_token_iterator(); ++iter) {
+    string cell = *iter;
     string key;
     string value;
-    cell.erase(std::remove(cell.begin(), cell.end(), '\r'), cell.end());
     if (regex_search(cell, match, e)) {
       typeSame = true;
       if (match.size() == 3) {
@@ -75,5 +84,5 @@ void readFile(string basePath, string fileName, map<string, string> &localizedMa
     assert(!localizedMap.count(key));
     localizedMap[key] = value;
     lineNumber++;
-  };
+  }
 }

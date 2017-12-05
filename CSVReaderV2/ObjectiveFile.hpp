@@ -59,8 +59,8 @@ private:
   bool _isStatic;
   bool _simpleWay;
 public:
-  ObjectiveFunction(string funcName);
-  ObjectiveFunction(string funcName,
+  ObjectiveFunction(const string &funcName);
+  ObjectiveFunction(const string &funcName,
                     const ObjectiveType returnType,
                     const vector<string> &paramterTags,
                     const vector<string> &paramterNames,
@@ -70,6 +70,17 @@ public:
   void addLines(const string &line);
   string defineContent() const;
   string headerContent() const;
+  string mainContent() const;
+};
+
+class StaticCPPFunction
+{
+private:
+  string _funcName;
+  vector<string> _lines;
+public:
+  StaticCPPFunction(const string &funcName);
+  void addLines(const string &line);
   string mainContent() const;
 };
 
@@ -99,6 +110,7 @@ private:
   vector<string> _impImportHeaders;
   vector<ObjectiveClass *> _classList;
   vector<ObjectiveProperty *> _staticPropertyList;
+  vector<StaticCPPFunction *> _staticCPPList;
   string _generateHFile() const;
   string _generateMFile() const;
 public:
@@ -108,6 +120,7 @@ public:
   void addImportFile(const ObjectiveFile &file);
   void addStaticProperty(ObjectiveProperty *property);
   void addClass(ObjectiveClass *objectiveClass);
+  void addStaticCPPFunction(StaticCPPFunction *staticCppFunction);
   void writeToFile(string basePath);
   string fileName() const;
   ObjectiveClass *searchClassByName(const string className);

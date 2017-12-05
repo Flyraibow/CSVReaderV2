@@ -49,6 +49,8 @@ string nameChange(string originName,NameType type)
     return "_" + originName + "Dic";
   } else if (type == DataImp) {
     return "_" + originName + "Data";
+  } else if (type == GetOriginFunc) {
+    return "get" + bigname;
   }
   return originName;
 }
@@ -254,12 +256,16 @@ ObjectiveFile* convertCSVToObjectiveClass(const string &basePath,
         token = _stripToken(token);
         propertyTypeList.push_back(token);
         if (!token.compare(0, namePrefix.size(), namePrefix) && token.size() > namePrefix.size() + 1) {
-          string getStringFuncName = token.substr(namePrefix.size() + 1);
+          string stringFuncName = token.substr(namePrefix.size() + 1);
           string prefixString = propertyList[propertyTypeList.size() - 1];
           assert(idIvar.size() > 0);
-          ObjectiveFunction *getStringFunction = new ObjectiveFunction("-(NSString *)" + getStringFuncName);
-          getStringFunction->addLines("NSString *string = [NSString stringWithFormat:@\"" + prefixString + "_%@\",_" + idIvar + "];");
-          getStringFunction->addLines("return NSLocalizedString(string, nil);");
+          string getStringFuncName = nameChange(stringFuncName, GetOriginFunc);
+          StaticCPPFunction *staticCppFunction = new StaticCPPFunction("static NSString * " + getStringFuncName + "(NSString *" + idIvar +")");
+          staticCppFunction->addLines("NSString *string = [NSString stringWithFormat:@\"" + prefixString + "_%@\", " + idIvar + "];");
+          staticCppFunction->addLines("return NSLocalizedString(string, nil);");
+          objectiveFile->addStaticCPPFunction(staticCppFunction);
+          ObjectiveFunction *getStringFunction = new ObjectiveFunction("-(NSString *)" + stringFuncName);
+          getStringFunction->addLines("return " + getStringFuncName + "(_" + idIvar + ");" );
           objectiveData->addFunction(getStringFunction);
         } else if (token == "id" || token == "stringId") {
           idIndex = (int)propertyTypeList.size() - 1;

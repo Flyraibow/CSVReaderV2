@@ -70,8 +70,8 @@ string _stripTokenToNum(const string &token)
 ObjectiveType *_getPropertyType(const string &propertyType)
 {
   static const unordered_set<string> definedType({"int", "long", "double","BOOL", "NSInteger"});
-  static const unordered_set<string> definedPointerType({"NSString", "NSSet"});
-  static static_map definedMapType({{"string","NSString"}, {"id", "NSString"},{"groupId", "NSString"}, {"bool" , "BOOL"}, {"stringId", "NSString"}, {"set", "NSSet"}});
+  static const unordered_set<string> definedPointerType({"NSString", "NSSet", "NSArray"});
+  static static_map definedMapType({{"string","NSString"}, {"id", "NSString"},{"groupId", "NSString"}, {"bool" , "BOOL"}, {"stringId", "NSString"}, {"set", "NSSet"}, {"array", "NSArray"}});
   if (definedMapType.count(propertyType)) {
     return _getPropertyType(definedMapType.at(propertyType));
   } else if (definedType.count(propertyType)) {
@@ -90,6 +90,7 @@ string _getReadBufferByType(ObjectiveProperty *property)
     {"long", "readLong"},
     {"NSString", "readString"},
     {"NSSet", "readSet"},
+    {"NSArray", "readArray"},
   });
   assert(definedMapType.count(property->type()));
   string result = "\t";
@@ -135,7 +136,8 @@ void _saveBuffer(unique_ptr<bb::ByteBuffer> &buffer, ObjectiveType *type, string
     buffer->putInt(stoi(token));
   } else if (type->type() == "NSString") {
     buffer->putString(token);
-  } else if (type->type() == "NSSet" || type->type() == "set") {
+  } else if (type->type() == "NSSet" || type->type() == "set" ||
+             type->type() == "NSArray" || type->type() == "array") {
     vector<string> sets = splitStr(token, ";");
     buffer->putLong(sets.size());
     for (int i = 0; i < sets.size(); ++i) {
